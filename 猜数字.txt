@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void menu();
+void game();
+int main(void)
+{
+	int intput = 0;
+	srand((unsigned int)time(NULL));
+	do
+	{
+		menu();
+		printf("请选择: ");
+		scanf("%d", &intput);
+		switch(intput)
+		{
+			case 1:
+				game();
+				break;
+			case 0:
+				printf("退出游戏\n");
+			default:
+				printf("选择错误，请重新选择\n");
+				break;
+		}
+	} 
+		while(intput);
+} 
+void menu()
+{
+	printf("***********************************\n");
+	printf("*********1.play    0.exist*********\n");
+	printf("***********************************\n");
+}
+void game()
+{
+	int ret = 0;
+	ret = rand()%100+1;  //随机产生的数在1~100之间
+    while(1)
+	{
+		int num = 0;
+		printf("请猜数字：\n");
+		scanf("%d", &num);
+	    if(num == ret)
+		{
+			printf("恭喜你，猜对了！\n");
+		}
+		else if(num > ret)
+		{
+			printf("猜大了\n");
+		}	
+		else
+		{
+			printf("猜小了\n");
+		}
+	} 
+ } 
